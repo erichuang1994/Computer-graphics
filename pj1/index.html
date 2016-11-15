@@ -33,8 +33,8 @@
 		var Boid = function() {
 
 			var vector = new THREE.Vector3(),
-				_acceleration, _width = 500,
-				_height = 500,
+				_acceleration, _width = 600,
+				_height = 600,
 				_depth = 200,
 				_goal, _neighborhoodRadius = 100,
 				_maxSpeed = 4,
@@ -349,8 +349,8 @@
 				boid.velocity.x = Math.random() * 2 - 1;
 				boid.velocity.y = Math.random() * 2 - 1;
 				boid.velocity.z = Math.random() * 2 - 1;
-				boid.setAvoidWalls(false);
-				boid.setWorldSize(500, 500, 400);
+				boid.setAvoidWalls(true);
+				boid.setWorldSize(600, 600, 400);
 				bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
 					color: Math.random() * 0xffffff,
 					side: THREE.DoubleSide
@@ -403,7 +403,7 @@
 				bird = birds[i];
 				bird.position.copy(boids[i].position);
 				color = bird.material.color;
-				color.r = color.g = color.b = (500 - bird.position.z) / 1000;
+				color.r = color.g = color.b = (600 - bird.position.z) / 1000;
 				bird.rotation.y = Math.atan2(-boid.velocity.z, boid.velocity.x);
 				bird.rotation.z = Math.asin(boid.velocity.y / boid.velocity.length());
 				bird.phase = (bird.phase + (Math.max(0, bird.rotation.z) + 0.1)) % 62.83;
